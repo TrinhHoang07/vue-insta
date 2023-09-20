@@ -30,7 +30,7 @@ import { RouterLink, useRoute } from 'vue-router';
         {
             id: 2,
             title: 'Search',
-            path: '/#',
+            path: '#',
             icon: SearchIcon
         },
         {
@@ -60,7 +60,7 @@ import { RouterLink, useRoute } from 'vue-router';
         {
             id: 7,
             title: 'Create',
-            path: '/create',
+            path: '#',
             icon: CreateIcon
         },
     ])
@@ -95,7 +95,6 @@ import { RouterLink, useRoute } from 'vue-router';
 </template>
 
 <style scoped lang="scss">
-
     .logo-app {
         display: block;
         padding-left: 12px;
