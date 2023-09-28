@@ -101,6 +101,10 @@ import { RouterLink, useRoute } from 'vue-router';
         margin: 24px 0;
     }
     .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
         width: 220px;
         padding: 16px;
         display: flex;

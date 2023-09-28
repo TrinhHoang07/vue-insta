@@ -18,7 +18,7 @@ defineProps<{
                 <p class="real">{{ subName }}</p>
             </div>
         </div>
-        <p class="change-user">Switch</p>
+        <p class="change-user">Follow</p>
     </div>
 </template>
 

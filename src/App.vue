@@ -11,5 +11,5 @@ import SideBar from './components/SideBar/SideBar.vue';
 </template>
 
 <style lang="scss">
-    @import './assets/sass/test.module.scss'
+    @import './assets/sass/main.module.scss'
 </style>
