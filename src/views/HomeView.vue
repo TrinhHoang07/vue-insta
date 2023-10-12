@@ -43,10 +43,20 @@
         }
     ])
 
-    const isMorePost = ref(false)
+    const isMorePost = ref<boolean>(false)
+    const heartNumber = ref<number>(300)
+    const commentNumber = ref<number>(500)
     
     const handleOpenMore = () => {
         isMorePost.value = true
+    }
+
+    const handleIncrementHeart = () => {
+        ++heartNumber.value
+    }
+
+    const handleRestoreHeart = () => {
+        heartNumber.value--
     }
 
 </script>
@@ -72,8 +82,8 @@
                 <StoryItem avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
                 <StoryItem avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
             </div>
-            <HomeItemPost name="ROSE" :comments="590" :likes="300" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" data="OK" time="1d" :func="handleOpenMore"/>
-            <HomeItemPost name="ROSE" :comments="590" :likes="300" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" data="OK" time="1d" :func="handleOpenMore"/>
+            <HomeItemPost @increment-heart="handleIncrementHeart" @restore-heart="handleRestoreHeart" name="ROSE" :comments="commentNumber" :likes="heartNumber" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" data="OK" time="1d" :func="handleOpenMore"/>
+            <HomeItemPost @increment-heart="handleIncrementHeart" @restore-heart="handleRestoreHeart" name="ROSE" :comments="commentNumber" :likes="heartNumber" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" data="OK" time="1d" :func="handleOpenMore"/>
         </div>
         <div class="bar-suggest">
             <div class="header-profile">

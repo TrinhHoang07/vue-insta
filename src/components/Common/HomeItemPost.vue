@@ -21,6 +21,18 @@
     const isHeart = ref(true)
     const isSave = ref(true)
 
+    const emit = defineEmits(['incrementHeart', 'restoreHeart'])
+
+    const handleClickHeart = (checking: string) => {
+        isHeart.value = !isHeart.value
+
+        if(checking === 'plus') {
+            emit('incrementHeart')
+        } else {
+            emit('restoreHeart')
+        }
+    }
+
 </script>
 
 <template>
@@ -46,10 +58,10 @@
         <div class="actions-post">
             <div class="actions-icons">
                 <div class="general-action">
-                    <span @click="isHeart = !isHeart" v-if="isHeart">
+                    <span @click="() => handleClickHeart('plus')" v-if="isHeart">
                         <HeartIcon />
                     </span>
-                    <span @click="isHeart = !isHeart" v-else>
+                    <span @click="() => handleClickHeart('unplus')" v-else>
                         <HeartIconSolid />
                     </span>
                     <span>
