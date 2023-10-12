@@ -4,6 +4,7 @@
     import SuggestAccItem from '../components/Common/SuggestAccItem.vue';
     import HomeItemPost from '@/components/Common/HomeItemPost.vue';
     import StoryItem from '@/components/Common/StoryItem.vue';
+    import PreviewStory from '@/components/Common/PreviewStory.vue';
 
     const items = shallowRef<{
         id: number;
@@ -75,6 +76,7 @@
             </div>
         </div>
     </Transition>
+    <PreviewStory />
     <section class="home-container">
         <div class="contents">
             <div class="wrapper-stories">
