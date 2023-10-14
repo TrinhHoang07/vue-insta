@@ -5,6 +5,7 @@
     import HomeItemPost from '@/components/Common/HomeItemPost.vue';
     import StoryItem from '@/components/Common/StoryItem.vue';
     import PreviewStory from '@/components/Common/PreviewStory.vue';
+    import ActionFixed from '@/components/Common/ActionFixed.vue';
 
     const items = shallowRef<{
         id: number;
@@ -45,11 +46,24 @@
     ])
 
     const isMorePost = ref<boolean>(false)
+    const isStory = ref<boolean>(false)
     const heartNumber = ref<number>(300)
     const commentNumber = ref<number>(500)
     
     const handleOpenMore = () => {
         isMorePost.value = true
+    }
+
+    const handleCloseMore = () => {
+        isMorePost.value = false
+    }
+
+    const handleOpenStr = () => {
+        isStory.value = true
+    }
+    
+    const handleCloseStr = () => {
+        isStory.value = false
     }
 
     const handleIncrementHeart = () => {
@@ -63,26 +77,26 @@
 </script>
 
 <template>
-    <Transition name="bounce">
-        <div v-if="isMorePost" @click="isMorePost = !isMorePost" class="actions-post-fixed">
-            <div @click="(event) => event.stopPropagation()" class="actions-post-container">
-                <p class="active">Report</p>
-                <p>Go to post</p>
-                <p>Share to...</p>
-                <p>Copy link</p>
-                <p>Embed</p>
-                <p>About this account</p>
-                <p @click="isMorePost = !isMorePost">Cancel</p>
-            </div>
-        </div>
-    </Transition>
-    <PreviewStory />
+
+    <ActionFixed 
+        :handle-close="handleCloseMore"
+        :items="[
+            {id: 1, title: 'Report', isActive: true}, 
+            {id: 1, title: 'Go to post', isActive: false}, 
+            {id: 1, title: 'Share to...', isActive: false},
+            {id: 1, title: 'Copy link', isActive: false},
+            {id: 1, title: 'Embed', isActive: false},
+            {id: 1, title: 'About this account', isActive: false},
+        ]"
+        :is-open="isMorePost"
+    />
+    <PreviewStory :handle-close="handleCloseStr" v-show="isStory" />
     <section class="home-container">
         <div class="contents">
             <div class="wrapper-stories">
-                <StoryItem avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
-                <StoryItem avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
-                <StoryItem avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
+                <StoryItem :handle-open="handleOpenStr" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
+                <StoryItem :handle-open="handleOpenStr" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
+                <StoryItem :handle-open="handleOpenStr" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" name="hoang.0702"/>
             </div>
             <HomeItemPost @increment-heart="handleIncrementHeart" @restore-heart="handleRestoreHeart" name="ROSE" :comments="commentNumber" :likes="heartNumber" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" data="OK" time="1d" :func="handleOpenMore"/>
             <HomeItemPost @increment-heart="handleIncrementHeart" @restore-heart="handleRestoreHeart" name="ROSE" :comments="commentNumber" :likes="heartNumber" avatar="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" data="OK" time="1d" :func="handleOpenMore"/>
@@ -297,7 +311,7 @@
         position: fixed;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.65);
-        z-index: 999;
+        z-index: 999999999999;
         display: flex;
 
         .actions-post-container {

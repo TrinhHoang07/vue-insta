@@ -2,12 +2,13 @@
     defineProps<{
         avatar: string;
         name: string;
+        handleOpen: Function
     }>()
 
 </script>
 
 <template>
-    <div class="story-item">
+    <div class="story-item" @click="() => handleOpen()">
         <div class="wrapper-avatar">
             <div class="avatar">
                 <img :src="avatar" :alt="name">
