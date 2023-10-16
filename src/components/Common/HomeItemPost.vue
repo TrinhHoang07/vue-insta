@@ -20,6 +20,8 @@
 
     const isHeart = ref(true)
     const isSave = ref(true)
+    const commentInput = ref<string>('')
+    const commentList = ref<string[]>([])
 
     const emit = defineEmits(['incrementHeart', 'restoreHeart'])
 
@@ -30,6 +32,14 @@
             emit('incrementHeart')
         } else {
             emit('restoreHeart')
+        }
+    }
+
+    const handleAddComment = (event: KeyboardEvent) => {
+        if(event.key === 'Enter' && commentInput.value.trim().length > 0) {
+            commentList.value = [...commentList.value, commentInput.value]
+
+            commentInput.value = ''
         }
     }
 
@@ -81,8 +91,9 @@
             <p class="likes">{{ likes }} likes</p>
             <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur alias ratione hic provident, illo officia nisi aspernatur omnis rem debitis temporibus tempora tempore reiciendis delectus!</p>
             <p class="comments">View all {{ comments }} comments</p>
+            <p class="description clamb-two" v-for="(comment, index) in commentList" :key="index">Hoàng: {{ comment }}</p>
             <div class="add-comments">
-                <input type="text" placeholder="Add a comment...">
+                <input v-model="commentInput" @keyup="(event: KeyboardEvent) => handleAddComment(event)" type="text" placeholder="Add a comment...">
             </div>
         </div>
     </div>
@@ -194,6 +205,13 @@
                 font-weight: 400;
                 color: #333;
                 margin: 6px 0;
+            }
+
+            .description.clamb-two {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
             }
 
             .comments {
