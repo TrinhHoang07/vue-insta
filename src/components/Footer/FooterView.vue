@@ -30,5 +30,47 @@
 </template>
 
 <style scoped lang="scss">
-    
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 32px;
+
+        .footer-container {
+            a {
+                text-decoration: none;
+                font-size: 1.2rem;
+                color: #333;
+                opacity: 0.85;
+                margin: 0 8px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .footer-sologan {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+
+            select {
+                border: none;
+                font-size: 1.3rem;
+                color: #666;
+                cursor: pointer;
+                outline: none;
+                margin-right: 12px;
+            }
+
+            p {
+                font-size: 1.3rem;
+                color: #333;
+                opacity: 0.85;
+                font-weight: 400;
+            }
+        }
+    }
 </style>

@@ -6,6 +6,7 @@ import IconHeartSolidTrans from '../icons/IconHeartSolidTrans.vue';
         previewUrl: string;
         heartCount: number;
         commentCount: number;
+        handleOpen: Function
     }>()
 
 </script>
@@ -14,7 +15,7 @@ import IconHeartSolidTrans from '../icons/IconHeartSolidTrans.vue';
     <div class="explore-item">
         <div class="preview-explore">
             <img :src="props.previewUrl" alt="preview-user">
-            <div class="action-item">
+            <div @click="$props.handleOpen()" class="action-item">
                 <div class="info-action">
                     <span>
                         <IconHeartSolidTrans />

@@ -2,12 +2,15 @@
 
     import ExploreItem from '@/components/Common/ExploreItem.vue';
     import LoadingView from '@/components/Common/LoadingView.vue';
+import PreviewExplore from '@/components/Common/PreviewExplore.vue';
+import FooterView from '@/components/Footer/FooterView.vue';
     import {splitArray} from '@/helper'
     import { onBeforeMount, onMounted, onUnmounted, ref, shallowRef, watch } from 'vue';
 
     const dataPro = shallowRef<any[]>([])
     const _limit = ref<number>(10)
     const isLoading = ref<boolean>(false)
+    const isPreview = ref<boolean>(false)
 
     onBeforeMount(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${_limit.value}`)
@@ -43,17 +46,33 @@
         }
     }
 
+    const handleOpenPreview = () => {
+
+        console.log('call open preview')
+
+        isPreview.value = true
+    }
+    
+    const handleClosePreview = () => {
+        isPreview.value = false
+    }
+
 
 </script>
 
 <template>
     <div class="explore">
+
+        <PreviewExplore :handle-close="handleClosePreview" v-show="isPreview"/>
+
         <div class="explore-container" v-for="(item, index) in (splitArray(dataPro, 5))" :key="index">
-            <ExploreItem v-for="data in item" :key="data.id" preview-url="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" :heart-count="300" :comment-count="215"/>
+            <ExploreItem v-for="data in item" :key="data.id" preview-url="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" :heart-count="300" :comment-count="215" :handle-open="handleOpenPreview"/>
         </div>
-        <div style="text-align: center; padding-bottom: 32px;" v-if="isLoading">
+        <div style="text-align: center" v-if="isLoading">
             <LoadingView />
         </div>
+
+        <FooterView />
     </div>
 </template>
 
