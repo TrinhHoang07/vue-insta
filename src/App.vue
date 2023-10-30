@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import SideBar from './components/SideBar/SideBar.vue';
+// import SideBar from './components/SideBar/SideBar.vue';
 </script>
 
 <template>
-    <SideBar />
-    <main class="main">
+    <!-- <SideBar />
+    <main class="main"> -->
         <RouterView />
-    </main>
+    <!-- </main> -->
 </template>
 
 <style lang="scss">
-    @import './assets/sass/main.module.scss'
+    // @import './assets/sass/main.module.scss'
 </style>

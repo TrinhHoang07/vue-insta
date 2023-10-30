@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { shallowRef, ref } from 'vue';
-import SideBarItem from './SideBarItem.vue';
+import SideBarIconItem from './SideBarIconItem.vue';
 import image from '../../assets/images/avatar.jpg';
 import HomeIcon from '../icons/IconHome.vue';
 import SearchIcon from '../icons/IconSearch.vue';
 import ExploreIcon from '../icons/IconExplore.vue';
 import ReelsIcon from '../icons/IconReels.vue';
-import LogoIcon from '../icons/IconLogo.vue';
+import LogoIcon from '../icons/IconLogoSmall.vue';
 import MoreIcon from '../icons/IconMore.vue';
 import MessagesIcon from '../icons/IconMessages.vue';
 import NotificationsIcon from '../icons/IconNotifications.vue';
@@ -85,7 +85,6 @@ import Search from '../Search/SearchView.vue';
             <RouterLink to="/" class="link-nav-item" :class="{active: route.name === 'Home'.toLowerCase()}">
                 <div class="nav-item">
                     <HomeIcon />
-                    <span>Home</span>
                 </div>
             </RouterLink>
 
@@ -94,20 +93,18 @@ import Search from '../Search/SearchView.vue';
             <div @click="isShow = !isShow" class="link-nav-item">
                 <div id="btn-search" class="nav-item">
                     <SearchIcon />
-                    <span>Search</span>
                 </div>
             </div>
             <!-- testttt -->
 
-            <SideBarItem v-for="item in items" :key="item.id" :title="item.title" :path="item.path">
+            <SideBarIconItem v-for="item in items" :key="item.id" :title="item.title" :path="item.path">
                 <component :is="item.icon"></component>
-            </SideBarItem>
+            </SideBarIconItem>
 
             <!-- test -->
             <div class="link-nav-item">
                 <div class="nav-item">
                     <NotificationsIcon />
-                    <span>Notifications</span>
                 </div>
             </div>
 
@@ -115,7 +112,6 @@ import Search from '../Search/SearchView.vue';
             <div class="link-nav-item">
                 <div class="nav-item">
                     <CreateIcon />
-                    <span>Create</span>
                 </div>
             </div>
             <!-- test -->
@@ -125,14 +121,12 @@ import Search from '../Search/SearchView.vue';
                     <div class="profile-image">
                     <img :src="image" alt="avatar"> 
                     </div>
-                    <span>Profile</span>
                 </div>
             </RouterLink>
         </div>
         <RouterLink to="#" class="link-nav-item">
             <div class="nav-item">
                 <MoreIcon />
-                <span>More</span>
             </div>
         </RouterLink>
     </nav>
@@ -143,14 +137,10 @@ import Search from '../Search/SearchView.vue';
         display: block;
         padding-left: 12px;
         margin: 24px 0;
+        color: #333;
     }
     .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 220px;
-        padding: 16px;
+        padding: 12px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -158,6 +148,7 @@ import Search from '../Search/SearchView.vue';
         background-color: #fff;
         z-index: 99999;
         min-height: 100vh;
+        max-height: 100vh;
     }
 
     .link-nav-item {
@@ -176,6 +167,7 @@ import Search from '../Search/SearchView.vue';
     .nav-item {
         display: flex;
         padding: 12px;
+        margin: 8px 0;
         align-items: center;
 
         &:hover {

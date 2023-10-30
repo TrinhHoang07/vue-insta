@@ -155,6 +155,7 @@ import IconPlay from '../icons/IconPlay.vue';
                     width: 100%;
                     height: auto;
                     border-radius: 4px;
+                    cursor: pointer;
                 }
 
                 .pos-click-playing {
@@ -163,6 +164,7 @@ import IconPlay from '../icons/IconPlay.vue';
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    cursor: pointer;
 
                     .clicked-play {
                         width: 72px;
@@ -270,7 +272,7 @@ import IconPlay from '../icons/IconPlay.vue';
                 margin-left: 16px;
 
                 .action-item {
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
                     display: flex;
                     justify-content: center;
                     flex-direction: column;
