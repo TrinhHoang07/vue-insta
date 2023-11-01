@@ -45,7 +45,7 @@ const router = createRouter({
             redirect: '/inbox',
             children: [
                 {
-                    path: '/inboxs',
+                    path: '/inboxs/:id?',
                     component: Inbox,
                     name: 'inbox'
                 },

@@ -2,9 +2,9 @@
     import SideBarIcon from '../components/SideBarIcon/SideBarIcon.vue';
     import IconChevDown from '@/components/icons/IconChevDown.vue';
     import IconChatGroup from '@/components/icons/IconChatGroup.vue';
-import InboxAccountItem from '@/components/Common/InboxAccountItem.vue';
-import InboxMessageEmpty from '@/components/Common/InboxMessageEmpty.vue';
-import InboxMessageItem from '@/components/Common/InboxMessageItem.vue';
+    import InboxAccountItem from '@/components/Common/InboxAccountItem.vue';
+    import InboxMessageItem from '@/components/Common/InboxMessageItem.vue';
+
 </script>
 
 <template>
@@ -42,8 +42,7 @@ import InboxMessageItem from '@/components/Common/InboxMessageItem.vue';
                 </section>
             </div>
             <div class="messages">
-                <!-- <InboxMessageEmpty /> -->
-                <InboxMessageItem preview-url="https://cdn3.ivivu.com/2022/09/bien-vo-cuc-8.jpg" :data="[]" name-user="Trần Thị Thúy" alias-name="thsuyy"/>
+                <InboxMessageItem />
             </div>
         </main>
     </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
 
     const props = defineProps<{
         previewUrl: string;
@@ -7,10 +9,12 @@
         time: string
     }>()
 
+    const router = useRouter()
+
 </script>
 
 <template>
-    <div class="account-item">
+    <div class="account-item" @click="() => router.push(`/inboxs/${Math.floor(Math.random() * 100)}`)">
         <div class="wrapper-image">
             <img :src="props.previewUrl" :alt="props.nameAccount">
         </div>

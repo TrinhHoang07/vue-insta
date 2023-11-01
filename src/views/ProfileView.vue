@@ -9,8 +9,8 @@
 </template>
 
 <style scoped lang="scss">
-    .profile {
+    // .profile {
         
-    }
+    // }
 
 </style>
