@@ -168,7 +168,7 @@ import Search from '../Search/SearchView.vue';
         user-select: none;
     }
     
-    .active {
+    .router-link-exact-active {
         font-weight: bold;
         color: #000;
     }

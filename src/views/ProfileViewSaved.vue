@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="profile">
-        <h1>PROFILE</h1>
+    <div class="profile-saved">
+        SAVED CONTENT
     </div>
 </template>
 

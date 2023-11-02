@@ -35,7 +35,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 32px;
+        margin: 32px 0;
 
         .footer-container {
             a {
