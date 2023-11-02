@@ -11,8 +11,8 @@ import EmptyPostProfileVue from '@/components/Common/EmptyPostProfile.vue';
 </template>
 
 <style scoped lang="scss">
-    .profile-post {
+    // .profile-post {
         
-    }
+    // }
 
 </style>
