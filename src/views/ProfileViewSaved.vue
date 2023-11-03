@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import EmptySavedProfileVue from '@/components/Common/EmptySavedProfile.vue';
+
 
 </script>
 
 <template>
     <div class="profile-saved">
-        SAVED CONTENT
+        <EmptySavedProfileVue />
     </div>
 </template>
 
