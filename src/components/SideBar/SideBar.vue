@@ -13,6 +13,7 @@ import NotificationsIcon from '../icons/IconNotifications.vue';
 import CreateIcon from '../icons/IconCreate.vue';
 import { RouterLink, useRoute } from 'vue-router';
 import Search from '../Search/SearchView.vue';
+import AddPostScreen from '../Common/AddPostScreen.vue';
 
     const route = useRoute()
     
@@ -71,6 +72,11 @@ import Search from '../Search/SearchView.vue';
         isShow.value = false;
     }
 
+    const isCreate = ref<boolean>(false)
+    const handleCloseCreate = () => {
+        isCreate.value = false;
+    }
+
 </script>
 
 <template>
@@ -112,7 +118,9 @@ import Search from '../Search/SearchView.vue';
             </div>
 
             <!-- test -->
-            <div class="link-nav-item">
+
+            <AddPostScreen :handleClose="handleCloseCreate" v-show="isCreate"/>
+            <div class="link-nav-item" @click="isCreate = true">
                 <div class="nav-item">
                     <CreateIcon />
                     <span>Create</span>
