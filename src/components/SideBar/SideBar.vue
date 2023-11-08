@@ -13,6 +13,7 @@ import NotificationsIcon from '../icons/IconNotifications.vue';
 import CreateIcon from '../icons/IconCreate.vue';
 import { RouterLink, useRoute } from 'vue-router';
 import Search from '../Search/SearchView.vue';
+import Notification from '../Notification/NotificationView.vue';
 import AddPostScreen from '../Common/AddPostScreen.vue';
 
     const route = useRoute()
@@ -72,6 +73,11 @@ import AddPostScreen from '../Common/AddPostScreen.vue';
         isShow.value = false;
     }
 
+    const isNoti = ref<boolean>(false)
+    const handleCloseNoti = () => {
+        isNoti.value = false;
+    }
+
     const isCreate = ref<boolean>(false)
     const handleCloseCreate = () => {
         isCreate.value = false;
@@ -110,8 +116,11 @@ import AddPostScreen from '../Common/AddPostScreen.vue';
             </SideBarItem>
 
             <!-- test -->
-            <div class="link-nav-item">
-                <div class="nav-item">
+
+            <Notification :is-show="isNoti" :close-func="handleCloseNoti"/>
+
+            <div @click="isNoti = !isNoti" class="link-nav-item">
+                <div id="btn-noti" class="nav-item">
                     <NotificationsIcon />
                     <span>Notifications</span>
                 </div>
